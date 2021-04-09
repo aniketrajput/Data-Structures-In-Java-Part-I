@@ -158,11 +158,33 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public T minItem() {
-        return null;
+
+        if(root == null)
+            return null;
+
+        return minItem(root);
+    }
+
+    private T minItem(Node<T> node) {
+        if (node.getLeftChild() != null)
+            return minItem(node.getLeftChild());
+
+        return node.getData();
     }
 
     @Override
     public T maxItem() {
-        return null;
+
+        if(root == null)
+            return null;
+
+        return maxItem(root);
+    }
+
+    private T maxItem(Node<T> node) {
+        if (node.getRightChild() != null)
+            maxItem(node.getRightChild());
+
+        return node.getData();
     }
 }
